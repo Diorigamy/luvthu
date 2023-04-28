@@ -31,28 +31,26 @@ int _execve(char **s, list_t *env, int num)
 		holder = s[0];
 		p = 1;
 	}
-	
 	else
 		holder = _which(s[0], env);
-	
 	if (access(holder, X_OK) != 0)
 	{
 		not_found(s[0], num, env);
 		free_double_ptr(s);
 		return (127);
 	}
-	else 
+	else
 	{
 		pid = fork();
-		if (pid == 0) 
+		if (pid == 0)
 		{
 			if (execve(holder, s, NULL) == -1)
 			{
-				not_found(s[0], num, env); 
+				not_found(s[0], num, env);
 				c_exit(s, env);
 			}
 		}
-		else 
+		else
 		{
 			wait(&st);
 			free_double_ptr(s);

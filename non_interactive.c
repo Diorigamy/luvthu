@@ -13,7 +13,7 @@ char *c_ignore(char *str)
 }
 
 /**
- * non_interactive - handles when user pipes commands into shell 
+ * non_interactive - handles when user pipes commands into shell
  * @env: enviroment variables
  */
 void non_interactive(list_t *env)
@@ -30,7 +30,7 @@ void non_interactive(list_t *env)
 	}
 	n_command = command;
 	command = c_ignore(command);
-	n_line = _str_tok(command, "\n"); 
+	n_line = _str_tok(command, "\n");
 	if (n_command != NULL)
 		free(n_command);
 	q = 0;
